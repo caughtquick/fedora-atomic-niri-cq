@@ -21,23 +21,11 @@ modules:
     repos:
       files:
       - https://github.com/terrapkg/subatomic-repos/raw/main/terra.repo
-    install:
-      packages:
-        - cosmic-files
-        - distrobox
-        - fuzzel
-        - gparter
-        - mako
-        - NetworkManager-tui
-        - papirus-icon-theme
-        - terra-release
-    remove:
-      packages:
-        # example: removing firefox (in favor of the flatpak)
-        # "firefox" is the main package, "firefox-langpacks" is a dependency
-        - firefox
-        - firefox-langpacks
-        - rofi-wayland 
+##    install:
+##      packages:
+##    remove:
+##      packages:
+
 
   - type: default-flatpaks
     configurations:
