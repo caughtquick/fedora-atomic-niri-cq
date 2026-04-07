@@ -31,6 +31,9 @@ modules:
         - NetworkManager-tui
         - chezmoi
         - xfce-polkit
+        - swaylock
+        - swaybg
+        - swayidle
     remove:
       packages:
         - firefox
