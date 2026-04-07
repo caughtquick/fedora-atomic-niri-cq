@@ -27,10 +27,14 @@ modules:
         - mako
         - niri
         - terra-release
+        - distrobox
+        - NetworkManager-tui
     remove:
       packages:
         - firefox
         - sway
+        - pavucontrol
+        - wofi
 
   - type: dnf
     install:
