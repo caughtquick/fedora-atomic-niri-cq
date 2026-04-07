@@ -26,10 +26,16 @@ modules:
         - git
         - mako
         - niri
+        - terra-release
     remove:
       packages:
         - firefox
         - sway
+
+  - type: dnf
+    install:
+      packages:
+        - ghostty
 
   - type: default-flatpaks
     configurations:
