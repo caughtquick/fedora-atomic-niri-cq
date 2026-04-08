@@ -34,6 +34,10 @@ modules:
         - swaylock
         - swaybg
         - swayidle
+        - papirus-icon-theme
+        - jetbrains-mono-font
+        - xdg-desktop-portal-gnome
+        - sddm
     remove:
       packages:
         - firefox
