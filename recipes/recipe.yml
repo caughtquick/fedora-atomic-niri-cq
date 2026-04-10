@@ -38,6 +38,7 @@ modules:
         - jetbrains-mono-fonts
         - xdg-desktop-portal-gnome
         - sddm
+        - adw-gtk3-theme
     remove:
       packages:
         - firefox
