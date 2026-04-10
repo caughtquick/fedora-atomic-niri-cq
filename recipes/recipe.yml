@@ -40,7 +40,6 @@ modules:
         - sddm
         - adw-gtk3-theme
         - grimshot
-        - gnome-themes-extra
     remove:
       packages:
         - firefox
