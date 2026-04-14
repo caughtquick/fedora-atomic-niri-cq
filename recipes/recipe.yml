@@ -52,6 +52,7 @@ modules:
       packages:
         - ghostty
         - nwg-look
+        - zed-nightly
 
   - type: default-flatpaks
     configurations:
