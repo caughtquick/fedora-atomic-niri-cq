@@ -39,7 +39,6 @@ modules:
         - xdg-desktop-portal-gtk
         - sddm
         - adw-gtk3-theme
-        - grimshot
     remove:
       packages:
         - firefox
