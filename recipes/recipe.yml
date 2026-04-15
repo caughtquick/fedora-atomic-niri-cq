@@ -39,6 +39,7 @@ modules:
         - xdg-desktop-portal-gtk
         - sddm
         - adw-gtk3-theme
+        - fuse
     remove:
       packages:
         - firefox
