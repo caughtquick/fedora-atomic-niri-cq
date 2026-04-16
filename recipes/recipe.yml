@@ -40,6 +40,7 @@ modules:
         - sddm
         - adw-gtk3-theme
         - fuse
+        - libvirt
     remove:
       packages:
         - firefox
