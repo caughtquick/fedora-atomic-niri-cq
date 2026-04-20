@@ -42,6 +42,7 @@ modules:
         - fuse
         - libvirt
         - gnome-keyring
+        - libvirt-daemon-driver-secret
     remove:
       packages:
         - firefox
