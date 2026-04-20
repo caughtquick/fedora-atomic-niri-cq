@@ -41,6 +41,7 @@ modules:
         - adw-gtk3-theme
         - fuse
         - libvirt
+        - gnome-keyring
     remove:
       packages:
         - firefox
