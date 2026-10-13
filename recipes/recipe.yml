@@ -60,7 +60,41 @@ modules:
     install:
       packages:
         - libfreeaptx
-      
+
+  # Fabric dependencies (https://wiki.ffpy.org/getting-started/installation-guide/)
+  # and companion libraries for Fabric desktop services (tray, audio, bluetooth, playerctl, system)
+  - type: dnf
+    install:
+      packages:
+        # Build tools & core libraries
+        - pkgconf
+        - python3-devel
+        - python3-pip
+        - python3-setuptools
+        - python3-wheel
+        - glib2
+        - gobject-introspection-devel
+        # GTK & Layer Shell
+        - gtk3-devel
+        - cairo-devel
+        - gtk-layer-shell
+        - gtk-layer-shell-devel
+        # Python bindings & dependencies
+        - python3-gobject
+        - python3-cairo
+        - python3-loguru
+        - python3-click
+        - python3-psutil
+        # Desktop services typelibs & utilities
+        - libdbusmenu-gtk3         # System tray (DbusmenuGtk3 typelib)
+        - gnome-bluetooth-libs     # Bluetooth service (GnomeBluetooth-3.0 typelib)
+        - cinnamon-desktop         # Audio service (Cvc-1.0 typelib)
+        - playerctl                # Media player / MPRIS integration
+
+  # Global install of Fabric into system Python (/usr)
+  - type: script
+    snippets:
+      - pip install --no-deps --break-system-packages --prefix=/usr git+https://github.com/Fabric-Development/fabric.git
 
   - type: default-flatpaks
     configurations:
