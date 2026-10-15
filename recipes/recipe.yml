@@ -76,6 +76,7 @@ modules:
         - python3-loguru
         - python3-click
         - python3-psutil
+        - python3-tomlkit
 
   # Global install of Fabric into system Python (/usr)
   - type: script
