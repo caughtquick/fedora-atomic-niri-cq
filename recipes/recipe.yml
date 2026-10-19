@@ -57,10 +57,14 @@ modules:
         - ghostty
         - nwg-look
         - terra-release-multimedia
+  # aptX/aptX HD Bluetooth codecs (PipeWire's aptX plugin ships in RPM Fusion)
   - type: dnf
+    repos:
+      nonfree: rpmfusion
     install:
       packages:
         - libfreeaptx
+        - pipewire-codec-aptx
 
   # Fabric runtime dependencies
   - type: dnf
