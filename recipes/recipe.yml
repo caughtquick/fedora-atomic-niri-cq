@@ -23,13 +23,11 @@ modules:
     install:
       packages:
         - git
-        - mako
         - niri
         - terra-release
         - distrobox
         - NetworkManager-tui
         - chezmoi
-        - xfce-polkit
         - swaylock
         - swayidle
         - papirus-icon-theme
@@ -48,13 +46,16 @@ modules:
         - sway
         - pavucontrol
         - wofi
+        # Unused since cqicshell: bar + notifications are built in, wallpapers dropped
+        - waybar
+        - dunst
+        - swaybg
 
   - type: dnf
     install:
       packages:
         - ghostty
         - nwg-look
-        - swww
         - terra-release-multimedia
   - type: dnf
     install:
