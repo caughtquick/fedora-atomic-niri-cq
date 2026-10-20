@@ -57,6 +57,7 @@ modules:
         - ghostty
         - nwg-look
         - terra-release-multimedia
+        - awww
   # aptX/aptX HD Bluetooth codecs (PipeWire's aptX plugin ships in RPM Fusion)
   - type: dnf
     repos:
