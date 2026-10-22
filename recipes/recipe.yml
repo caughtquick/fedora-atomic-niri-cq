@@ -58,6 +58,37 @@ modules:
         - nwg-look
         - terra-release-multimedia
         - awww
+
+  # Fingerprint reader support (libfprint drivers, fprintd daemon, PAM module)
+  - type: dnf
+    install:
+      packages:
+        - libfprint
+        - fprintd
+        - fprintd-pam
+
+  # Allow fingerprint auth for sudo/TTY logins (system-auth) and SDDM.
+  # authselect writes pam_fprintd.so into the distro PAM stack with a password
+  # fallback, instead of us overriding PAM files wholesale.
+  - type: script
+    snippets:
+      - |
+        if command -v authselect >/dev/null 2>&1; then
+          if authselect current | grep -q 'with-fingerprint'; then
+            echo "authselect: with-fingerprint already enabled"
+          else
+            authselect enable-feature with-fingerprint
+          fi
+        else
+          echo "authselect not available, skipping with-fingerprint"
+        fi
+
+        # SDDM's PAM config uses password-auth, which authselect's feature
+        # does not touch, so add fingerprint auth there explicitly.
+        if [ -f /etc/pam.d/sddm ] && ! grep -q pam_fprintd /etc/pam.d/sddm; then
+          sed -i '1i auth        sufficient    pam_fprintd.so' /etc/pam.d/sddm
+        fi
+
   # aptX/aptX HD Bluetooth codecs (PipeWire's aptX plugin ships in RPM Fusion)
   - type: dnf
     repos:
