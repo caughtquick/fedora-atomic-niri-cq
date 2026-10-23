@@ -35,6 +35,8 @@ modules:
         - xdg-desktop-portal-gnome
         - xdg-desktop-portal-gtk
         - sddm
+        # Keep SDDM installed as a fallback; greetd is the active login manager.
+        - greetd
         - adw-gtk3-theme
         - fuse
         - libvirt
@@ -58,6 +60,8 @@ modules:
         - nwg-look
         - terra-release-multimedia
         - awww
+        # Noctalia login greeter for greetd (Terra package)
+        - noctalia-greeter
 
   # Fingerprint reader support (libfprint drivers, fprintd daemon, PAM module)
   - type: dnf
@@ -119,6 +123,25 @@ modules:
   - type: script
     snippets:
       - pip install --no-deps --break-system-packages --prefix=/usr git+https://github.com/Fabric-Development/fabric.git
+
+  # Initialize Noctalia Greeter state for Fedora's "greetd" session account.
+  - type: script
+    snippets:
+      - |
+        if command -v noctalia-greeter-apply-appearance >/dev/null 2>&1; then
+          GREETER_USER=greetd noctalia-greeter-apply-appearance --setup-system
+        else
+          echo "noctalia-greeter-apply-appearance not found, skipping greeter setup"
+        fi
+
+  # Use greetd (Noctalia Greeter) as the display manager. SDDM remains
+  # installed, so `systemctl enable --now sddm` can bring it back as a fallback.
+  - type: systemd
+    system:
+      enabled:
+        - greetd
+      disabled:
+        - sddm
 
   - type: default-flatpaks
     configurations:

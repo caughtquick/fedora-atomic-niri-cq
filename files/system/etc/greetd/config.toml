@@ -1,0 +1,10 @@
+# greetd configuration for Noctalia Greeter.
+#
+# Fedora's greetd package creates the unprivileged "greetd" account for the
+# greeter session, so use it here instead of the upstream "greeter" default.
+[terminal]
+vt = 1
+
+[default_session]
+command = "/usr/bin/noctalia-greeter-session"
+user = "greetd"
