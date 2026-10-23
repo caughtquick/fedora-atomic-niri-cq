@@ -1,8 +1,15 @@
-# sway-fedora &nbsp; [![bluebuild build badge](https://github.com/caughtquick/sway-fedora/actions/workflows/build.yml/badge.svg)](https://github.com/caughtquick/sway-fedora/actions/workflows/build.yml)
+# fedora-atomic-niri-cq &nbsp; [![bluebuild build badge](https://github.com/caughtquick/fedora-atomic-niri-cq/actions/workflows/build.yml/badge.svg)](https://github.com/caughtquick/fedora-atomic-niri-cq/actions/workflows/build.yml)
 
-See the [BlueBuild docs](https://blue-build.org/how-to/setup/) for quick setup instructions for setting up your own repository based on this template.
+This repository builds my personal Fedora Atomic image with [BlueBuild](https://blue-build.org/), based on `quay.io/fedora-ostree-desktops/sway-atomic`.
 
-After setup, it is recommended you update this README to describe your custom image.
+It is tailored to my setup and is not meant to be a general-purpose distro image.
+
+## What this image is
+
+- A Fedora Atomic image that swaps the default Sway session for **Niri**
+- Configured to use **greetd** with **Noctalia Greeter** by default (SDDM kept as fallback)
+- Includes my preferred core packages (for example: ghostty, distrobox, chezmoi, libvirt, gnome-keyring)
+- Adds fingerprint authentication support and image signing policy for signed rebases
 
 ## Installation
 
@@ -28,11 +35,11 @@ To rebase an existing atomic Fedora installation to the latest build:
   systemctl reboot
   ```
 
-The `latest` tag will automatically point to the latest build. That build will still always use the Fedora version specified in `recipe.yml`, so you won't get accidentally updated to the next major version.
+The `latest` tag points to the most recent build from this repository. The Fedora major version is pinned by `recipes/recipe.yml`.
 
 ## ISO
 
-If build on Fedora Atomic, you can generate an offline ISO with the instructions available [here](https://blue-build.org/how-to/generate-iso/#_top). These ISOs cannot unfortunately be distributed on GitHub for free due to large sizes, so for public projects something else has to be used for hosting.
+If you build on Fedora Atomic, you can generate an offline ISO with the instructions [here](https://blue-build.org/how-to/generate-iso/#_top). Large ISO artifacts are not hosted in this repository.
 
 ## Verification
 
