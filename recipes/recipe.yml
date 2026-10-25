@@ -106,9 +106,11 @@ modules:
   - type: dnf
     install:
       packages:
-        # Wayland Layer Shell & System Tray typelib
+        # Wayland Layer Shell, Session Lock & System Tray typelib
         - gtk-layer-shell
+        - gtk-session-lock
         - libdbusmenu-gtk3
+        - gobject-introspection
         # Python dependencies
         - python3-pip
         - python3-setuptools
