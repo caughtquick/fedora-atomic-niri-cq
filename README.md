@@ -1,12 +1,12 @@
 # fedora-atomic-niri-cq &nbsp; [![bluebuild build badge](https://github.com/caughtquick/fedora-atomic-niri-cq/actions/workflows/build.yml/badge.svg)](https://github.com/caughtquick/fedora-atomic-niri-cq/actions/workflows/build.yml)
 
-This repository builds my personal Fedora Atomic image with [BlueBuild](https://blue-build.org/), based on `quay.io/fedora-ostree-desktops/sway-atomic`.
+This repository builds my personal Fedora Atomic image with [BlueBuild](https://blue-build.org/), based on Universal Blue Main (`ghcr.io/ublue-os/base-main`).
 
 It is tailored to my setup and is not meant to be a general-purpose distro image.
 
 ## What this image is
 
-- A Fedora Atomic image that swaps the default Sway session for **Niri**
+- A Fedora Atomic image built around **Niri** on top of Universal Blue Main
 - Configured to use **greetd** with **Noctalia Greeter** by default (SDDM kept as fallback)
 - Includes my preferred core packages (for example: ghostty, distrobox, chezmoi, libvirt, gnome-keyring)
 - Adds fingerprint authentication support and image signing policy for signed rebases

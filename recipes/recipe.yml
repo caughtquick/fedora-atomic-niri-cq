@@ -5,8 +5,8 @@ name: fedora-atomic-niri-cq
 description: This is my personal OS image, it is not meant for use by anyone else (you're free to try if you like)
 
 # the base image to build on top of (FROM) and the version tag to use
-base-image: quay.io/fedora-ostree-desktops/sway-atomic
-image-version: 45 # newest stable Fedora; "latest" or "rawhide" are also supported
+base-image: ghcr.io/ublue-os/base-main
+image-version: latest # Universal Blue stable release; "44" or "beta" (Fedora 45) are also supported
 
 # module configuration, executed in order
 # you can include multiple instances of the same module
@@ -34,6 +34,11 @@ modules:
         - jetbrains-mono-fonts
         - xdg-desktop-portal-gnome
         - xdg-desktop-portal-gtk
+        - polkit-gnome
+        - playerctl
+        - brightnessctl
+        - grim
+        - slurp
         - sddm
         # Keep SDDM installed as a fallback; greetd is the active login manager.
         - greetd
@@ -42,16 +47,6 @@ modules:
         - libvirt
         - gnome-keyring
         - libvirt-daemon-driver-secret
-    remove:
-      packages:
-        - firefox
-        - sway
-        - pavucontrol
-        - wofi
-        # Unused since cqicshell: bar + notifications are built in, wallpapers dropped
-        - waybar
-        - dunst
-        - swaybg
 
   - type: dnf
     install:
