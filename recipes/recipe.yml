@@ -131,17 +131,32 @@ modules:
         - gvfs-smb
         - xdg-user-dirs
 
-        # Hardware, power & credentials
+        # Hardware, power, printing & credentials
         - tuned
         - tuned-ppd
         - bolt
+        - system-config-printer
+        - pam_oo7
         - pinentry-gnome3
         - qt6-qtwayland
+
+        # Media codecs & image formats
+        - ffmpeg-free
+        - libheif-ffmpeg
 
         # Wayland tools
         - wlsunset
         - wev
         - imv
+
+  # aptX / aptX HD Bluetooth audio codecs (PipeWire plugin in RPM Fusion)
+  - type: dnf
+    repos:
+      nonfree: rpmfusion
+    install:
+      packages:
+        - libfreeaptx
+        - pipewire-codec-aptx
 
   # Global install of Fabric into system Python (/usr)
   - type: script
