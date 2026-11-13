@@ -38,6 +38,7 @@ modules:
         - brightnessctl
         - grim
         - slurp
+        - cliphist
         - sddm
         # Keep SDDM installed as a fallback; greetd is the active login manager.
         - greetd
