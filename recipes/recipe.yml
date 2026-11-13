@@ -97,6 +97,7 @@ modules:
         - gtk-session-lock
         - libdbusmenu-gtk3
         - gobject-introspection
+        - polkit-libs
         # Python dependencies
         - python3-pip
         - python3-setuptools
@@ -106,6 +107,41 @@ modules:
         - python3-click
         - python3-psutil
         - python3-tomlkit
+
+  # Desktop essentials, integration & Wayland utilities
+  - type: dnf
+    install:
+      packages:
+        # Network & VPN UI
+        - network-manager-applet
+        - nm-connection-editor
+        - NetworkManager-openvpn-gnome
+        - NetworkManager-openconnect-gnome
+
+        # Bluetooth
+        - blueman
+        - bluez-obexd
+
+        # File management, thumbnails & VFS
+        - Thunar
+        - thunar-archive-plugin
+        - xarchiver
+        - tumbler
+        - gvfs
+        - gvfs-smb
+        - xdg-user-dirs
+
+        # Hardware, power & credentials
+        - tuned
+        - tuned-ppd
+        - bolt
+        - pinentry-gnome3
+        - qt6-qtwayland
+
+        # Wayland tools
+        - wlsunset
+        - wev
+        - imv
 
   # Global install of Fabric into system Python (/usr)
   - type: script
