@@ -88,15 +88,6 @@ modules:
           sed -i '1i auth        sufficient    pam_fprintd.so' /etc/pam.d/sddm
         fi
 
-  # aptX/aptX HD Bluetooth codecs (PipeWire's aptX plugin ships in RPM Fusion)
-  - type: dnf
-    repos:
-      nonfree: rpmfusion
-    install:
-      packages:
-        - libfreeaptx
-        - pipewire-codec-aptx
-
   # Fabric runtime dependencies
   - type: dnf
     install:
